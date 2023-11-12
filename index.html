@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>睿博人妻, 许丹丹</title>
+    <title></title>
 </head>
 
 <body>
@@ -14,6 +14,13 @@
         </div>
         <div class="base64_img" style="margin-top: 20px;">
         </div>
+    </div>
+    <p>View:</p>
+    <div class="view_container">
+        <!-- <input type="text" style="width: 100%;" name="" id="view_input"> -->
+        <textarea name="" id="view_input" cols="30" rows="10"></textarea>
+        <button type="button" id="view_btn">View</button>
+        <img src="" alt="" class="view_img" style="max-width: 100%;">
     </div>
 </body>
 <script>
@@ -44,6 +51,15 @@
         base64_img.innerHTML = `<img src="data:image/png;base64,${base64}" 
                                 style="width: 100%;">`;
         console.log(base64);
+    });
+</script>
+<script>
+    const view_btn = document.querySelector('#view_btn');
+    const view_img = document.querySelector('.view_img');
+    const view_input = document.querySelector('#view_input');
+    view_btn.addEventListener('click', function () {
+        view_img.style.display = 'block';
+        view_img['src'] = `data:image/png;base64,${view_input.value}`;
     });
 </script>
 
