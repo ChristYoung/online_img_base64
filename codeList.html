@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    const body = document.querySelector('body');
+    const list_HTML_TEMPLATE = Array.from({ length: 20 }).map((c, _index) => {
+        return `<li style="margin: 10px;"><a href="./${_index}.html" target="_blank">${_index}.html</a></li>`
+    })
+    body.innerHTML = `<ul>
+        ${list_HTML_TEMPLATE.join('')}
+    </ul>`
+</script>
+
+</html>
