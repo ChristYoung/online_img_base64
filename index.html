@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>睿博人妻, 许丹丹</title>
+</head>
+
+<body>
+    <div class="container" style="width: 500px; margin: 30px auto;">
+        <div class="" style="display: flex; align-items: center;">
+            <input type="file" name="" id="">
+        </div>
+        <div class="base64_img" style="margin-top: 20px;">
+        </div>
+    </div>
+</body>
+<script>
+    const fileInput = document.querySelector('input[type=file]');
+    const base64_img = document.querySelector('.base64_img');
+
+    function convertImageToBase64 (file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const base64 = reader.result.split(',')[1];
+                resolve(base64);
+            };
+
+            reader.onerror = function (error) {
+                console.error('Failed to read image:', error);
+                reject(error);
+            };
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+    fileInput.addEventListener('change', async function (event) {
+        const file = event.target.files[0];
+        const base64 = await convertImageToBase64(file);
+        base64_img.innerHTML = `<img src="data:image/png;base64,${base64}" 
+                                style="width: 100%;">`;
+        console.log(base64);
+    });
+</script>
+
+</html>
